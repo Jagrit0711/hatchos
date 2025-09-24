@@ -1,0 +1,102 @@
+{
+  "enabled": true,
+  "channels": {
+    "slack": {
+      "enabled": false,
+      "webhook": "",
+      "channel": "#hatch-os-updates",
+      "mention_on_error": true
+    },
+    "discord": {
+      "enabled": false,
+      "webhook": "",
+      "mention_role": ""
+    },
+    "email": {
+      "enabled": false,
+      "smtp": {
+        "host": "",
+        "port": 587,
+        "secure": false,
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      },
+      "to": "",
+      "subject_prefix": "[Hatch OS]"
+    },
+    "webhook": {
+      "enabled": true,
+      "url": "",
+      "method": "POST",
+      "headers": {
+        "Authorization": ""
+      }
+    },
+    "teams": {
+      "enabled": false,
+      "webhook": ""
+    }
+  },
+  "templates": {
+    "updateStart": {
+      "title": "🔄 Hatch OS Update Started",
+      "color": "#FFA500",
+      "priority": "normal"
+    },
+    "updateSuccess": {
+      "title": "✅ Hatch OS Update Completed Successfully",
+      "color": "#00FF00", 
+      "priority": "low"
+    },
+    "updateFailed": {
+      "title": "❌ Hatch OS Update Failed",
+      "color": "#FF0000",
+      "priority": "high"
+    },
+    "systemError": {
+      "title": "⚠️ Hatch OS System Error",
+      "color": "#FF6600",
+      "priority": "high"
+    },
+    "systemWarning": {
+      "title": "⚠️ Hatch OS System Warning",
+      "color": "#FFFF00",
+      "priority": "normal"
+    },
+    "securityAlert": {
+      "title": "🔒 Hatch OS Security Alert",
+      "color": "#8B0000",
+      "priority": "critical"
+    },
+    "maintenanceStart": {
+      "title": "🔧 Hatch OS Maintenance Started",
+      "color": "#ADD8E6",
+      "priority": "low"
+    },
+    "maintenanceComplete": {
+      "title": "✅ Hatch OS Maintenance Complete",
+      "color": "#90EE90",
+      "priority": "low"
+    }
+  },
+  "filters": {
+    "min_priority": "normal",
+    "rate_limit": {
+      "enabled": true,
+      "max_notifications_per_hour": 10,
+      "cooldown_minutes": 5
+    },
+    "keywords_ignore": [
+      "debug",
+      "verbose"
+    ]
+  },
+  "formatting": {
+    "include_hostname": true,
+    "include_version": true,
+    "include_timestamp": true,
+    "timezone": "UTC"
+  }
+}

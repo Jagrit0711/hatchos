@@ -1,0 +1,35 @@
+[Unit]
+Description=Hatch OS Auto Updater Service
+Documentation=https://github.com/Jagrit0711/hatchos
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hatch
+Group=hatch
+WorkingDirectory=/opt/hatch-os
+Environment=NODE_ENV=production
+Environment=HATCH_WEBHOOK_URL=
+ExecStart=/usr/bin/node scripts/update-manager.js auto
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGINT
+TimeoutStopSec=5
+Restart=always
+RestartSec=10
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/hatch-os /var/log/hatch-os
+PrivateTmp=true
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hatch-updater
+
+[Install]
+WantedBy=multi-user.target
