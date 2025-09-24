@@ -1,10 +1,39 @@
-# Hatch OS v1.0.0
-## Lightweight, Secure, Educational Operating System by Zylon Labs
+# 🎓 Hatch OS v1.2.0 - Educational Operating System
+## Lightweight, Secure, Auto-Updating OS by Zylon Labs
 
+[![Build Status](https://github.com/Jagrit0711/hatchos/workflows/CI%2FCD/badge.svg)](https://github.com/Jagrit0711/hatchos/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-16.0+-green.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18.0+-green.svg)](https://nodejs.org/)
 [![Electron](https://img.shields.io/badge/Electron-23.0+-blue.svg)](https://www.electronjs.org/)
 [![React](https://img.shields.io/badge/React-18.0+-blue.svg)](https://reactjs.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://docker.com/)
+
+---
+
+## 🚀 Quick Start with Auto-Updates
+
+### One-Command Installation (Recommended)
+```bash
+# Download and run the complete setup script
+curl -fsSL https://raw.githubusercontent.com/Jagrit0711/hatchos/main/scripts/setup-github-integration.sh | sudo bash
+```
+
+This automatically:
+- ✅ Clones the repository from GitHub
+- ✅ Sets up automatic updates every 5 minutes  
+- ✅ Installs system services and dependencies
+- ✅ Configures backup and rollback system
+- ✅ Enables multi-channel notifications
+- ✅ Starts all services and runs health checks
+
+### 🔄 GitHub Auto-Update System
+
+#### ⚡ Real-Time Updates
+- **Frequency**: Checks GitHub every 5 minutes for new commits
+- **Smart Updates**: Only updates when changes are detected  
+- **Zero Downtime**: Rolling updates with automatic health checks
+- **Automatic Rollback**: Reverts to previous version on failure
+- **Backup System**: Maintains 5 automatic backups with instant restore
 
 ---
 
