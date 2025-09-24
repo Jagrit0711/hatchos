@@ -1,0 +1,41 @@
+{
+  "short_name": "Hatch OS",
+  "name": "Hatch OS - Educational Operating System",
+  "description": "A secure, educational operating system designed for institutions and learning environments",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "categories": ["education", "productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr"
+}

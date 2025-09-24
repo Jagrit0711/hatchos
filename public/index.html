@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Hatch OS - Educational Operating System for Institutions" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <title>Hatch OS - Educational Operating System</title>
+    
+    <style>
+      /* Loading screen styles */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: 'Inter', sans-serif;
+        z-index: 9999;
+      }
+      
+      .loading-logo {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      .loading-logo i {
+        font-size: 32px;
+        color: #667eea;
+      }
+      
+      .loading-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      
+      .loading-subtitle {
+        font-size: 16px;
+        opacity: 0.8;
+        margin-bottom: 32px;
+      }
+      
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loading screen when React loads */
+      .app-loaded .loading-screen {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <h2>JavaScript Required</h2>
+        <p>Hatch OS requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-logo">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <div class="loading-title">Hatch OS</div>
+      <div class="loading-subtitle">Educational Operating System</div>
+      <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- React App Root -->
+    <div id="root"></div>
+    
+    <script>
+      // Hide loading screen when React app loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('app-loaded');
+          setTimeout(function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+              loadingScreen.remove();
+            }
+          }, 500);
+        }, 1000);
+      });
+      
+      // Service Worker Registration (for PWA capabilities)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
